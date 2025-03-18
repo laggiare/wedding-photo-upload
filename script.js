@@ -12,10 +12,18 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
 
     statusMessage.textContent = 'Uploading...';
 
-    // Here we would integrate the Google Drive API later
-    // For now, just simulate the upload process with a timeout
-    setTimeout(() => {
-        statusMessage.textContent = 'Upload Successful!';
-        fileInput.value = '';  // Clear the file input
-    }, 2000);
+    const formData = new FormData();
+    formData.append('file', files[0]);
+
+    fetch('https://your-cloudflare-worker-url.com', { // Replace with your Cloudflare Worker URL
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        statusMessage.textContent = 'Upload successful!';
+    })
+    .catch(error => {
+        statusMessage.textContent = 'Upload failed: ' + error.message;
+    });
 });
