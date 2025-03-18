@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Photo Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Wedding Photos</h1>
+        <p>We'd love to see your photos from the wedding! Please upload them here.</p>
+        
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="fileInput">Select Photos</label>
+            <input type="file" id="fileInput" name="file" multiple required>
+            <button type="submit">Upload</button>
+        </form>
+
+        <div id="statusMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
